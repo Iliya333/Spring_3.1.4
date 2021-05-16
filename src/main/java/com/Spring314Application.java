@@ -32,12 +32,12 @@ public class Spring314Application {
 		httpHeaders.add("Cookie", cookies);
 
 		ResponseEntity<String> entityPostUser = restTemplate.exchange(url, HttpMethod.POST,
-				new HttpEntity<>(new User(3L,"James", "Brown", (byte)10), httpHeaders),
+				new HttpEntity<>(new User(3L, "James", "Brown", (byte)3), httpHeaders),
 				String.class);
 		System.out.println(entityPostUser.getBody());
 
 		ResponseEntity<String> entityPutUser = restTemplate.exchange(url, HttpMethod.PUT,
-				new HttpEntity<>(new User(3L,"Thomas","Brown", (byte)10), httpHeaders),
+				new HttpEntity<>(new User(3L,"Thomas","Shelby", (byte)3), httpHeaders),
 				String.class);
 		System.out.println(entityPutUser.getBody());
 
@@ -47,12 +47,7 @@ public class Spring314Application {
 		ResponseEntity<String> entityDeleteUser = restTemplate.exchange(urlDelete, HttpMethod.DELETE, new HttpEntity<>(httpHeaders), String.class );
 		System.out.println(entityDeleteUser.getBody());
 
-
-
-
-
-
-
+		System.out.println(entityPostUser.getBody() + entityPutUser.getBody() + entityDeleteUser.getBody());
 
 
 
